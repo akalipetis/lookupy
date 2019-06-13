@@ -140,6 +140,9 @@ def lookup(key, val, item):
     init, last = dunder_partition(key)
     if last == 'exact':
         return dunder_get(item, init) == val
+    if last == 'iexact':
+        val = guard_str(val)
+        return iff_not_none(dunder_get(item, init), lambda y: y.lower() == val.lower())
     elif last == 'neq':
         return dunder_get(item, init) != val
     elif last == 'contains':

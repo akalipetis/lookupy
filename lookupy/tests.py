@@ -82,6 +82,10 @@ def test_lookup():
     assert not lookup('response__status__exact', 404, entry2)
     assert lookup('response_unknown__exact', None, entry1)
 
+    # exact       -- works for strings only
+    assert lookup('request__url__iexact', 'HTTP://EXAMPLE.COM', entry1)
+    assert not lookup('request_url__iexact', 'HTTP://EXAMPLE.ORG', entry1)
+
     # neq         -- works for strings and ints
     assert not lookup('request__url__neq', 'http://example.com', entry1)
     assert lookup('request_url__neq', 'http://example.org', entry1)
