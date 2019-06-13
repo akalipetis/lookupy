@@ -7,7 +7,7 @@ except IOError:
 
 setup(
     name='Lookupy',
-    version='0.1',
+    version='0.2+ak',
     author='Vineet Naik',
     author_email='naikvin@gmail.com',
     url='https://github.com/naiquevin/lookupy',
